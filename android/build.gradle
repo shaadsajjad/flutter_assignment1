@@ -1,0 +1,33 @@
+allprojects {
+    tasks.withType(JavaCompile) {
+        options.compilerArgs << '-Xlint:-options'
+    }
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+rootProject.buildDir = "../build"
+subprojects {
+    project.buildDir = "${rootProject.buildDir}/${project.name}"
+}
+subprojects {
+    project.evaluationDependsOn(":app")
+}
+
+tasks.register("clean", Delete) {
+    delete rootProject.buildDir
+}
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        // Add your Gradle plugin version here
+        classpath 'com.android.tools.build:gradle:8.4.0'
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.0' // Example if using Kotlin
+    }
+}
+
