@@ -1,4 +1,7 @@
+import 'package:billionaire_app/addbutton.dart';
+import 'package:billionaire_app/balance.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
@@ -46,15 +49,16 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
 
     return MaterialApp(
-      theme: ThemeData.light(),
+      theme: ThemeData.dark(),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(
-          title: Text("Billionaire App!"),
+        appBar:AppBar(
+          title: Text("Billionaire App!",
+            style: TextStyle(
+                fontFamily: "poppins"
+            ),),
           centerTitle: true,
           backgroundColor: Colors.black,
-          leading:light_mode? Icon(Icons.nightlight_outlined): Icon(Icons.nightlight),
-
         ),
         body: Container(
           padding: EdgeInsets.all(15),
@@ -63,27 +67,9 @@ class _MyAppState extends State<MyApp> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Expanded(
-                flex: 9,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text('Bank Balance'),
-                    Text('\$ $balance')
-                  ],
-                ),
-              ),
+              Balance(balance: balance),
+              Addbutton(addBalance: addbalance)
 
-              Expanded(
-                flex: 1,
-                child: ElevatedButton(onPressed: addbalance,
-                    child:Text('Add Money'),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.red[900],
-                    minimumSize: Size(double.infinity,double.infinity)
-                  )
-                ),
-              )
             ],
           )
           ),

@@ -36,6 +36,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
   shared_preferences: ^2.3.3
+  intl: ^0.20.1
 
 dev_dependencies:
   flutter_test:
@@ -58,6 +59,15 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+
+  fonts:
+   - family: playwrite
+     fonts:
+       - asset: asset/fonts/PlaywriteCOGuides-Regular.ttf
+   - family: poppins
+     fonts:
+       - asset: asset/fonts/Poppins-Black.ttf
+       - asset: asset/fonts/Poppins-Italic.ttf
 
   # To add assets to your application, add an assets section, like this:
   # assets:
