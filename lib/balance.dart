@@ -12,8 +12,18 @@ class Balance extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text('Bank Balance'),
-          Text('\$ ${NumberFormat.simpleCurrency(name: '').format(balance)}')
+          const Text('Bank Balance',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 26
+          ),
+          ),
+          Text('\$ ${NumberFormat.simpleCurrency(name: '').format(balance)}',
+          style: const TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.w600
+          ),
+          )
         ],
       ),
     );

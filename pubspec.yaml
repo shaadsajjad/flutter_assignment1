@@ -37,6 +37,10 @@ dependencies:
   cupertino_icons: ^1.0.8
   shared_preferences: ^2.3.3
   intl: ^0.20.1
+  flutter_launcher_icons: ^0.14.2
+flutter_icons:
+  android: true
+  image_path: "asset/images/ic_launcher.png"
 
 dev_dependencies:
   flutter_test:
